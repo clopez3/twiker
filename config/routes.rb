@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   # para que atiendan al cliente que llegue a esa ruta.
   post "login" => "application#login"
 
+  get "calculadora" => "application#calculadora"
+
+  post "calculo" => "application#calculo"
 
 
 
