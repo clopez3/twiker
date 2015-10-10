@@ -5,18 +5,26 @@
 </div>
 
 <div class="container">
+	
+
+	<div class="notice">
+		<% if flash[:notice] %>
+			<%= flash[:notice] %>
+		<% end %>
+	</div>
+
+
 	<section class="introduction">
 		<div>
 			<h1>Bienvenido a Twiker.</h1>
 			<p class="text">Conoce a la gran comunidad maker que está cambiando la forma de ver y hacer tecnología. Conéctate con tus compañeros, comparte experiencias e incluso tu conocimiento.</p>
 		</div>
 	</section><!--
-
 	--><section class="forms">
 		<div>
 			<%= form_tag("/login", method:"post") do %>
-				<%= text_field_tag(:correo, "", placeholder: "Correo electrónico") %>
-				<%= password_field_tag(:clave, "", class: "medium", placeholder: "Contraseña") %><!--
+				<%= text_field_tag(:email, "", placeholder: "Correo electrónico") %>
+				<%= password_field_tag(:password, "", class: "medium", placeholder: "Contraseña") %><!--
 				--><input type="submit" value="Iniciar sesión">
 				<label>
 					<%= check_box_tag(:remember_me) %>
@@ -29,10 +37,10 @@
 
 		<div>
 			<h2>¿Eres un nuevo maker? <span>Regístrate</span></h2>
-			<%= form_tag("/signup", method: "post", class: "signup") do %>
-				<input type="text" placeholder="Nombre completo" name="nombre">
-				<input type="text" placeholder="Correo electrónico" name="correo">
-				<input type="password" placeholder="Contraseña" name="clave">
+			<%= form_tag("/users", method: "post", class: "signup") do %>
+				<input type="text" placeholder="Nombre completo" name="name">
+				<input type="text" placeholder="Correo electrónico" name="email">
+				<input type="password" placeholder="Contraseña" name="password">
 				<input type="submit" value="Registrarse">
 			<% end %>
 		</div>
